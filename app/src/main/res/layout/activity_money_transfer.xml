@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroundpage"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="5dp">
+
+        <ImageView
+            android:id="@+id/imageView_icon_menu"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/icon_menu"
+            tools:ignore="VectorDrawableCompat" />
+
+        <TextView
+            android:id="@+id/textView_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="Money Transfer"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingTop="10dp">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="How much do you want to transfer today?"
+            android:textColor="@android:color/black"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/editText_send"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:background="@drawable/buttonedittext22"
+                    android:hint="You Send"
+                    android:imeOptions="actionNext"
+                    android:inputType="number|numberSigned|numberDecimal"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="15dp" />
+
+                <Spinner
+                    android:id="@+id/spinner_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/linearlayoutdesignfragmneymoneyy"></Spinner>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:gravity="right"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:text="MYR 1 =" />
+
+                    <TextView
+                        android:id="@+id/textView_convert_myr"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="USD 0.2584" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/editText_recieve"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_weight="0.5"
+                    android:background="@drawable/buttonedittext22"
+                    android:hint="Recipient Gets"
+                    android:inputType="number|numberSigned|numberDecimal"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="15dp" />
+
+                <Spinner
+                    android:id="@+id/spinner_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/linearlayoutdesignfragmneymoneyy"></Spinner>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:gravity="right"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView_gets"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="MYR 1 = USD 0.2584" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/button_transfer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="#FF9900"
+                    android:text="Transfer Now"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_layout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Beneficiaries Is Empty For The Selected Country." />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:text="Add New Beneficiary"
+                android:textColor="@color/colorHeader" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- <TableLayout
+         android:id="@+id/keyboard"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:layout_weight="1"
+         android:background="@android:color/white"
+         android:divider="@drawable/keyboard_divider"
+         android:gravity="bottom"
+         android:orientation="vertical"
+         android:showDividers="beginning|middle|end">
+
+         <TableRow style="@style/keyboard_row">
+
+             <TextView
+                 android:id="@+id/t9_key_1"
+                 style="@style/keyboard_number_button"
+                 android:text="@string/number_one" />
+
+             <TextView
+                 android:id="@+id/t9_key_2"
+                 style="@style/keyboard_number_button"
+                 android:text="@string/number_two" />
+
+             <TextView
+                 android:id="@+id/t9_key_3"
+                 style="@style/keyboard_number_button"
+                 android:text="@string/number_three" />
+         </TableRow>
+
+         <TableRow style="@style/keyboard_row">
+
+             <TextView
+                 android:id="@+id/t9_key_4"
+                 style="@style/keyboard_number_button"
+                 android:text="@string/number_four" />
+
+             <TextView
+                 android:id="@+id/t9_key_5"
+                 style="@style/keyboard_number_button"
+                 android:text="@string/number_five" />
+
+             <TextView
+                 android:id="@+id/t9_key_6"
+                 style="@style/keyboard_number_button"
+                 android:text="@string/number_six" />
+         </TableRow>
+
+         <TableRow style="@style/keyboard_row">
+
+             <TextView
+                 android:id="@+id/t9_key_7"
+                 style="@style/keyboard_number_button"
+                 android:text="@string/number_seven" />
+
+             <TextView
+                 android:id="@+id/t9_key_8"
+                 style="@style/keyboard_number_button"
+                 android:text="@string/number_eight" />
+
+             <TextView
+                 android:id="@+id/t9_key_9"
+                 style="@style/keyboard_number_button"
+                 android:text="@string/number_nine" />
+         </TableRow>
+
+         <TableRow style="@style/keyboard_row">
+
+             <TextView
+                 android:id="@+id/t9_key_clear"
+                 style="@style/keyboard_button"
+                 android:text="@string/btn_clear"
+                 android:textAppearance="?android:attr/textAppearanceMedium" />
+
+             <TextView
+                 android:id="@+id/t9_key_0"
+                 style="@style/keyboard_number_button"
+                 android:text="@string/number_zero" />
+
+             <TextView
+                 android:id="@+id/t9_key_backspace"
+                 style="@style/keyboard_button"
+                 android:text="@string/btn_backspace"
+                 android:textAppearance="?android:attr/textAppearanceMedium" />
+         </TableRow>
+     </TableLayout>-->
+</LinearLayout>

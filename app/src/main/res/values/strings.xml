@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">Max Money New Application</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="spin_id_nationality">Choose Nationality</string>
+    <string name="spin_id_country">Choose Country</string>
+    <string name="spinner_source">Please Choose Source Of Income</string>
+    <string name="spinner_order">Please Choose Order Purpose</string>
+    <string name="spinner_business">Please Choose Nature Of Business</string>
+    <string name="permission_request">This sample needs permission for camera and audio recording.</string>
+    <string name="camera_error">This device doesn\'t support Camera2 API.</string>
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="done">DONE</string>
+    <string name="record">Record</string>
+    <string name="stop">Stop</string>
+    <string name="description_info">Info</string>
+    <string name="title_activity_foreign_exchange_details">Map</string>
+    <string name="title_activity_maps_firsst">Map</string>
+    <string name="title_activity_foreign_maps">Map</string>
+    <string name="title_activity_maps_for_first_time">Map</string>
+    <string name="title_activity_foreign_exchange_maps_latest">Map</string>
+    <string name="title_activity_foreign_exchange_details_new">Map</string>
+
+    <string name="placeholder">MaxMoney offer waiting for you</string>
+    <string name="placeholderTwo">MaxMoney has been selected as TOP compainies.see more...</string>
+
+    <string name="screen1_title">Best Rate</string>
+    <string name="screen1_desc">Best rate guaranteed always</string>
+
+
+    <string name="screen2_title">Safe and Convenient</string>
+    <string name="screen2_desc">Send money abroad with safety and convenience</string>
+
+
+    <string name="screen3_title">Quick Transfer</string>
+    <string name="screen3_desc">Transfer funds online quickly to more then 190 countries worldwide</string>
+
+    <string name="screen4_title">Home Delivery</string>
+    <string name="screen4_desc">Home delivery within 3 hours</string>
+</resources>

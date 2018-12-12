@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorHeader">#295799</color>
+    <color name="colorTulisan">#295799</color>
+    <color name="colorfont">#454545</color>
+    <color name="colorFont">#FFECB3</color>
+    <color name = "bg_lay06">#ffffff</color>
+
+    <color name="dot_active_06">#3F51B5</color>
+    <color name="dot_active_07">#3F51B5</color>
+    <color name="dot_active_08">#3F51B5</color>
+    <color name="dot_active_09">#3F51B5</color>
+
+    <array name="array_active">
+        <item>@color/dot_active_06</item>
+        <item>@color/dot_active_07</item>
+        <item>@color/dot_active_08</item>
+        <item>@color/dot_active_09</item>
+    </array>
+
+    <color name="dot_inactive_06">#e0e0e0</color>
+    <color name="dot_inactive_07">#e0e0e0</color>
+    <color name="dot_inactive_08">#e0e0e0</color>
+    <color name="dot_inactive_09">#e0e0e0</color>
+
+    <array name="array_inactive">
+        <item>@color/dot_inactive_06</item>
+        <item>@color/dot_inactive_07</item>
+        <item>@color/dot_inactive_08</item>
+        <item>@color/dot_inactive_09</item>
+
+    </array>
+
+</resources>

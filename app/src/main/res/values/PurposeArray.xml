@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="array_purpose">
+        <item>Vacation</item>
+        <item>Business</item>
+        <item>Shopping</item>
+        <item>Own Expenses</item>
+        <item>Medical</item>
+        <item>Education</item>
+        <item>Gambling</item>
+        <item>Others</item>
+        <item>Gift</item>
+        <item>Family Maintenance</item>
+    </string-array>
+</resources>

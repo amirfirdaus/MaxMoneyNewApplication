@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "762669469082",
+    "firebase_url": "https://norse-fragment-219909.firebaseio.com",
+    "project_id": "norse-fragment-219909",
+    "storage_bucket": "norse-fragment-219909.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:762669469082:android:715f25bb011a8974",
+        "android_client_info": {
+          "package_name": "com.mobile.maxmoneynewapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "762669469082-rh3q7sth9ga33sru85u9jk4s3dnueaki.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mobile.maxmoneynewapplication",
+            "certificate_hash": "9da5b59b945eb4518b07740f2f5fa0f221c94788"
+          }
+        },
+        {
+          "client_id": "762669469082-c0kcjn653mtb3j31ghjt1cjj01ja4565.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAayGwwNvL6XBoHRwHTcxRDvNEOtlnnNtA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "762669469082-c0kcjn653mtb3j31ghjt1cjj01ja4565.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

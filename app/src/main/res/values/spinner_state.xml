@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spin_state">
+        <item>KUALA LUMPUR</item>
+        <item>SABAH</item>
+        <item>SARAWAK</item>
+        <item>LABUAN</item>
+        <item>KELANTAN</item>
+        <item>TERENGGANU</item>
+        <item>PAHANG</item>
+        <item>JOHOR</item>
+        <item>MELAKA</item>
+        <item>NEGERI SEMBILAN</item>
+        <item>SELANGOR</item>
+        <item>PERAK</item>
+        <item>PENANG</item>
+        <item>KEDAH</item>
+        <item>PERLIS</item>
+    </string-array>
+
+    <string-array name="spinner_idType">
+        <item>NRIC</item>
+        <item>Passport</item>
+    </string-array>
+
+    <string-array name="spinner_accType">
+        <item>Personal</item>
+        <item>Business</item>
+    </string-array>
+</resources>

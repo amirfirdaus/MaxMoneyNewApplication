@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="nature_of_business">
+        <item>Accountants</item>
+        <item>Banking</item>
+        <item>Casino</item>
+        <item>Company Secretaries</item>
+        <item>Development Financial Institutions</item>
+        <item>E-Money</item>
+        <item>Gaming Companies</item>
+        <item>Jewellers</item>
+        <item>Lawyers</item>
+        <item>Banking</item>
+        <item>Leasing And Factoring</item>
+        <item>Life Insurance</item>
+        <item>Money Changers</item>
+        <item>Money Lenders</item>
+        <item>Non-Profit Organization</item>
+        <item>Non-Bank Deposit Taking Companies</item>
+        <item>Non-Bank Cards</item>
+        <item>Notaries</item>
+        <item>Offshore Banks</item>
+        <item>Real Estate</item>
+    </string-array>
+</resources>
