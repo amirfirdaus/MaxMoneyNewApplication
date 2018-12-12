@@ -99,7 +99,7 @@ public class RegisterActivity extends AppCompatActivity {
         linear_expiry = findViewById(R.id.linear_expiry);
         textViewTitleDeclaration();
         editTextDeclaration();
-        spinnerDeclaration();//
+        spinnerDeclaration();
         spinnerNationality();
 
         linear_business = findViewById(R.id.linear_business);
