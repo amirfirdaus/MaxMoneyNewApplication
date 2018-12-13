@@ -43,8 +43,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
-                    android:layout_marginRight="30dp"
                     android:layout_marginTop="20dp"
+                    android:layout_marginRight="30dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -68,8 +68,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="30dp"
-                    android:layout_marginRight="30dp"
                     android:layout_marginTop="20dp"
+                    android:layout_marginRight="30dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -187,8 +187,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="30dp"
-                    android:layout_marginRight="30dp"
                     android:layout_marginTop="20dp"
+                    android:layout_marginRight="30dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -216,8 +216,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="30dp"
-                    android:layout_marginRight="30dp"
                     android:layout_marginTop="20dp"
+
+                    android:layout_marginRight="30dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -228,25 +229,56 @@
                         android:textColor="@color/colorFont"
                         android:textSize="18sp" />
 
-                    <EditText
-                        android:id="@+id/editText_mobile"
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_marginTop="10dp"
-                        android:background="@drawable/xml_edit_text_register"
-                        android:hint="Mobile No"
-                        android:inputType="number|phone"
-                        android:paddingLeft="8dp"
-                        android:textColor="@android:color/black" />
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/white"
 
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:orientation="vertical">
+
+                            <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                                android:id="@+id/spinner_phoneNo"
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:layout_marginTop="0dp"
+                                android:drawSelectorOnTop="true"
+                                android:spinnerMode="dialog" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <EditText
+                                android:id="@+id/editText_phoneNo"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="0dp"
+                                android:background="@drawable/xml_edit_text_register"
+                                android:layout_gravity="end"
+
+                                android:hint="Mobile No"
+                                android:inputType="number"
+                                android:paddingLeft="8dp"
+                                android:textColor="@android:color/black" />
+                        </RelativeLayout>
+                    </LinearLayout>
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="30dp"
-                    android:layout_marginRight="30dp"
                     android:layout_marginTop="20dp"
+                    android:layout_marginRight="30dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -270,8 +302,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="30dp"
-                    android:layout_marginRight="30dp"
                     android:layout_marginTop="20dp"
+                    android:layout_marginRight="30dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -299,8 +331,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="30dp"
-                    android:layout_marginRight="30dp"
                     android:layout_marginTop="20dp"
+                    android:layout_marginRight="30dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -323,8 +355,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="30dp"
-                    android:layout_marginRight="30dp"
                     android:layout_marginTop="20dp"
+                    android:layout_marginRight="30dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -335,14 +367,16 @@
                         android:textColor="@color/colorFont"
                         android:textSize="18sp" />
 
-                    <TextView
-                        android:id="@+id/textView_dateofbirth2"
+                    <EditText
+                        android:id="@+id/editText_dateofbirth"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:layout_marginTop="10dp"
-                        android:text="DD-MM-YYYY"
-                        android:textColor="@color/bg_lay06"
-                        android:textSize="18sp" />
+                        android:background="@drawable/xml_edit_text_register"
+                        android:hint="DD-MM-YYYY"
+                        android:inputType="textPersonName"
+                        android:paddingLeft="8dp"
+                        android:textColor="@android:color/black" />
 
                 </LinearLayout>
 
@@ -351,8 +385,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="30dp"
-                    android:layout_marginRight="30dp"
                     android:layout_marginTop="20dp"
+                    android:layout_marginRight="30dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -363,14 +397,16 @@
                         android:textColor="@color/colorFont"
                         android:textSize="18sp" />
 
-                    <TextView
-                        android:id="@+id/textView_dateofexpiry2"
+                    <EditText
+                        android:id="@+id/editText_dateofexpiry"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:layout_marginTop="10dp"
-                        android:text="DD-MM-YYYY"
-                        android:textColor="@color/bg_lay06"
-                        android:textSize="18sp" />
+                        android:background="@drawable/xml_edit_text_register"
+                        android:hint="DD-MM-YYYY"
+                        android:inputType="textPersonName"
+                        android:paddingLeft="8dp"
+                        android:textColor="@android:color/black" />
 
                 </LinearLayout>
 
@@ -378,8 +414,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="30dp"
-                    android:layout_marginRight="30dp"
                     android:layout_marginTop="20dp"
+                    android:layout_marginRight="30dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -407,8 +443,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="30dp"
-                    android:layout_marginRight="30dp"
                     android:layout_marginTop="20dp"
+                    android:layout_marginRight="30dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -432,8 +468,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="30dp"
-                    android:layout_marginRight="30dp"
                     android:layout_marginTop="20dp"
+                    android:layout_marginRight="30dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -461,8 +497,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="30dp"
-                    android:layout_marginRight="30dp"
                     android:layout_marginTop="20dp"
+                    android:layout_marginRight="30dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -489,10 +525,10 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="40dp"
                     android:layout_marginLeft="30dp"
-                    android:layout_marginRight="30dp"
                     android:layout_marginTop="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginBottom="40dp"
                     android:orientation="vertical">
 
                     <Button

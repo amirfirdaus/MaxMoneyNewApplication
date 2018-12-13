@@ -9,6 +9,7 @@ import android.preference.PreferenceManager;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputFilter;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -53,21 +54,27 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+
 import static com.android.volley.Request.Method.POST;
 
 public class RegisterActivity extends AppCompatActivity {
-
+    OkHttpClient client;
+    MediaType JSON;
     TextView textView_title,textView_accType,textView_fullname,textView_email,textView_mobile,textView_idType,
-            textView_idNo,textView_nationality,textView_dateofbirth,textView_dateofexpiry,textView_address,
+            textView_idNo,textView_nationality,textView_address,
             textView_state,textView_postol,textView_city;
 
     TextView textView_dateofexpiry2,textView_dateofbirth2;
 
     Spinner spinner_accType,spinner_idType,spinner_state;
 
-    SearchableSpinner spinner_nationality;
+    SearchableSpinner spinner_nationality,spinner_phoneno;
 
-    EditText editText_fullname,editText_email,editText_mobile,editText_idNo,editText_address,editText_postolcode,editText_city;
+    ArrayAdapter<String> spinnerMobileno;
+
+    EditText editText_fullname,editText_email,editText_mobile,editText_idNo,editText_address,editText_postolcode,editText_city,editText_dateofexpiry,editText_dateofbirth;
 
     Button register;
 
@@ -93,7 +100,11 @@ public class RegisterActivity extends AppCompatActivity {
 
         mProgressDialog = new StandardProgressDialog(this.getWindow().getContext());
         session = new PreferenceManagerLogin(getApplicationContext());
+        //read JSON file from assets
+        client = new OkHttpClient();
+        JSON = MediaType.parse("application/json; charset=utf-8");
 
+        spinner_phoneno = findViewById(R.id.spinner_phoneNo);
         textView_title = findViewById(R.id.textView_title);
         spinner_nationality = findViewById(R.id.spinner_nationality);
         linear_expiry = findViewById(R.id.linear_expiry);
@@ -104,10 +115,8 @@ public class RegisterActivity extends AppCompatActivity {
 
         linear_business = findViewById(R.id.linear_business);
         linear_business.setVisibility(View.GONE);
-        textView_dateofexpiry2 = findViewById(R.id.textView_dateofexpiry2);
-        textView_dateofbirth2 = findViewById(R.id.textView_dateofbirth2);
 
-        editText_mobile.setText("+60");
+
 
         //spinner account type select
         spinner_accType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -124,8 +133,41 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
+        //spinner setter phoneNo
+        try {
+            JSONObject obj = new JSONObject(readJSONFromAsset());
+            JSONArray array = obj.getJSONArray("country");
 
-        //date picker
+            ArrayList<String> list = new ArrayList<String>();
+            for (int i = 0; i < array.length(); i++) {
+                JSONObject yeah = array.getJSONObject(i);
+                list.add(yeah.getString("dial_code") + " " + yeah.getString("name") + "");
+            }
+            spinnerMobileno = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, list);
+            spinner_phoneno.setTitle("Choose Dial Code");
+            spinner_phoneno.setAdapter(spinnerMobileno);
+            spinner_phoneno.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                    spinner_phoneno.setSelection(position);
+
+                    if (spinner_phoneno.getSelectedItem().toString().equals("+60 Malaysia")) {
+                        editText_mobile.setFilters(new InputFilter[]{new InputFilter.LengthFilter(11)});
+                    } else {
+                        editText_mobile.setFilters(new InputFilter[]{new InputFilter.LengthFilter(15)});
+                    }
+
+
+                }
+
+                public void onNothingSelected(AdapterView<?> parent) {
+                }
+            });
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+     /*   //date picker
         textView_dateofexpiry2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -141,7 +183,7 @@ public class RegisterActivity extends AppCompatActivity {
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
             }
-        });
+        });*/
 
         dateExpiryListerner  = new DatePickerDialog.OnDateSetListener() {
             @Override
@@ -164,7 +206,7 @@ public class RegisterActivity extends AppCompatActivity {
             }
         };
 
-        textView_dateofbirth2.setOnClickListener(new View.OnClickListener() {
+      /*  textView_dateofbirth2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Calendar cal = Calendar.getInstance();
@@ -200,7 +242,7 @@ public class RegisterActivity extends AppCompatActivity {
                 String date = newDay + "-" + newMonth + "-" + year;
                 textView_dateofbirth2.setText(date);
             }
-        };
+        };*/
         //end date picker
 
         register = findViewById(R.id.button_register);
@@ -409,7 +451,9 @@ public class RegisterActivity extends AppCompatActivity {
     private void editTextDeclaration() {
         editText_fullname = findViewById(R.id.editText_fullname);
         editText_email = findViewById(R.id.editText_email);
-        editText_mobile = findViewById(R.id.editText_mobile);
+        editText_mobile = findViewById(R.id.editText_phoneNo);
+        editText_dateofexpiry = findViewById(R.id.editText_dateofexpiry);
+        editText_dateofbirth = findViewById(R.id.editText_dateofbirth);
         editText_idNo = findViewById(R.id.editText_idNo);
         editText_address = findViewById(R.id.editText_address);
         editText_postolcode = findViewById(R.id.editText_postolcode);
@@ -425,8 +469,7 @@ public class RegisterActivity extends AppCompatActivity {
         textView_idType = findViewById(R.id.textView_idType);
         textView_idNo = findViewById(R.id.textView_idNo);
         textView_nationality = findViewById(R.id.textView_nationality);
-        textView_dateofbirth = findViewById(R.id.textView_dateofbirth);
-        textView_dateofexpiry = findViewById(R.id.textView_dateofexpiry);
+
         textView_address = findViewById(R.id.textView_address);
         textView_state = findViewById(R.id.textView_state);
         textView_postol = findViewById(R.id.textView_postol);
@@ -441,8 +484,7 @@ public class RegisterActivity extends AppCompatActivity {
         TypeFaceClass.setTypeFaceTextView(textView_idType,getApplicationContext());
         TypeFaceClass.setTypeFaceTextView(textView_idNo,getApplicationContext());
         TypeFaceClass.setTypeFaceTextView(textView_nationality,getApplicationContext());
-        TypeFaceClass.setTypeFaceTextView(textView_dateofbirth,getApplicationContext());
-        TypeFaceClass.setTypeFaceTextView(textView_dateofexpiry,getApplicationContext());
+
         TypeFaceClass.setTypeFaceTextView(textView_address,getApplicationContext());
         TypeFaceClass.setTypeFaceTextView(textView_state,getApplicationContext());
         TypeFaceClass.setTypeFaceTextView(textView_postol,getApplicationContext());
