@@ -374,6 +374,8 @@
                         android:layout_marginTop="10dp"
                         android:background="@drawable/xml_edit_text_register"
                         android:hint="DD-MM-YYYY"
+                        android:clickable="true"
+                        android:focusable="false"
                         android:inputType="textPersonName"
                         android:paddingLeft="8dp"
                         android:textColor="@android:color/black" />

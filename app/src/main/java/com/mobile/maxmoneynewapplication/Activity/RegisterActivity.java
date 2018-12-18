@@ -67,7 +67,7 @@ public class RegisterActivity extends AppCompatActivity {
             textView_state,textView_postol,textView_city;
 
     TextView textView_dateofexpiry2,textView_dateofbirth2;
-
+    String phoneNumber = "";
     Spinner spinner_accType,spinner_idType,spinner_state;
 
     SearchableSpinner spinner_nationality,spinner_phoneno;
@@ -78,7 +78,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     Button register;
 
-    private DatePickerDialog.OnDateSetListener dateExpiryListerner;
+   // private DatePickerDialog.OnDateSetListener dateExpiryListerner;
 
     private DatePickerDialog.OnDateSetListener dateBirthListerner;
 
@@ -167,8 +167,8 @@ public class RegisterActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-     /*   //date picker
-        textView_dateofexpiry2.setOnClickListener(new View.OnClickListener() {
+      //date picker
+      /*  editText_dateofbirth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Calendar cal = Calendar.getInstance();
@@ -178,12 +178,12 @@ public class RegisterActivity extends AppCompatActivity {
                 DatePickerDialog dialog = new DatePickerDialog(
                         RegisterActivity.this,
                         android.R.style.Theme_Holo_Light_Dialog_MinWidth,
-                        dateExpiryListerner,
+                        //dateExpiryListerner,
                         year,month,day);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
             }
-        });*/
+        });
 
         dateExpiryListerner  = new DatePickerDialog.OnDateSetListener() {
             @Override
@@ -204,11 +204,12 @@ public class RegisterActivity extends AppCompatActivity {
                 String date = newDay + "-" + newMonth + "-" + year;
                 textView_dateofexpiry2.setText(date);
             }
-        };
+        };*/
 
-      /*  textView_dateofbirth2.setOnClickListener(new View.OnClickListener() {
+        editText_dateofbirth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Calendar cal = Calendar.getInstance();
                 int year = cal.get(Calendar.YEAR);
                 int month = cal.get(Calendar.MONTH);
@@ -240,9 +241,9 @@ public class RegisterActivity extends AppCompatActivity {
                     newMonth = String.valueOf(month);
                 }
                 String date = newDay + "-" + newMonth + "-" + year;
-                textView_dateofbirth2.setText(date);
+                editText_dateofbirth.setText(date);
             }
-        };*/
+        };
         //end date picker
 
         register = findViewById(R.id.button_register);
@@ -254,7 +255,7 @@ public class RegisterActivity extends AppCompatActivity {
                 mProgressDialog.show();
 
                 if(editText_fullname.getText().toString().equals("") || editText_email.getText().toString().equals("") ||
-                        editText_mobile.getText().toString().equals("") || editText_idNo.getText().toString().equals("") ||
+                        editText_mobile.getText().toString().equals("") ||editText_mobile == null || editText_mobile.getText().toString().length() < 5|| editText_idNo.getText().toString().equals("") ||
                         editText_address.getText().toString().equals("") || editText_postolcode.getText().toString().equals("") ||
                         editText_city.getText().toString().equals("")){
                     mProgressDialog.dismiss();
@@ -268,8 +269,8 @@ public class RegisterActivity extends AppCompatActivity {
                     String idType = spinner_idType.getSelectedItem().toString();
                     String idNo = editText_idNo.getText().toString();
                     String country = country_name;
-                    String dob = textView_dateofbirth2.getText().toString();
-                    String dateExpiry = textView_dateofexpiry2.getText().toString();
+                    String dob = editText_dateofbirth.getText().toString();
+                    //String dateExpiry = textView_dateofexpiry2.getText().toString();
                     String address = editText_address.getText().toString();
                     String state = spinner_state.getSelectedItem().toString();
                     String postalCode = editText_postolcode.getText().toString();
@@ -293,7 +294,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
-    private void setDateOfBirth(Bundle arguments) {
+   private void setDateOfBirth(Bundle arguments) {
         String dateTemp = arguments.getString("dob");
         String DD = dateTemp.substring(0,2);
         String MM = dateTemp.substring(3,5);
@@ -309,7 +310,7 @@ public class RegisterActivity extends AppCompatActivity {
             System.out.println( pe.toString() );
         }
         String date_birthday = yyyy.format( actualDate );
-        textView_dateofbirth2.setText(date_birthday);
+        editText_dateofbirth.setText(date_birthday);
     }
 
     private void setPassportDateExpiry(Bundle arguments) {
@@ -494,7 +495,7 @@ public class RegisterActivity extends AppCompatActivity {
     public void register(final String idType, final String idNo, final String customerName, final String email, final String mobile, final String address, final String city,
                          final String state, final String postalCode, final String country, final String nationality, final String type, final String dob, final String registeredThrough){
         HashMap<String, String> user = session.getUserDetails();
-        final String email_online = user.get(PreferenceManagerLogin.KEY_EMAIL);
+      //  final String email_online = user.get(PreferenceManagerLogin.KEY_EMAIL);
 
         NukeSSLCerts.nuke();
         StringRequest stringRequest = new StringRequest(POST, BasedURL.ROOT_URL_API +"v1/customers",
@@ -513,7 +514,14 @@ public class RegisterActivity extends AppCompatActivity {
                                 next.putExtra("idNo",idNo);
                                 next.putExtra("idType",idType);
                                 next.putExtra("email",email);
-                                next.putExtra("mobile",mobile);
+                                for(int i = 0; i < spinner_phoneno.getSelectedItem().toString().length(); i++){
+                                    char c = spinner_phoneno.getSelectedItem().toString().charAt(i);  // returns 'l'
+                                    if(c == ' '){
+                                        phoneNumber = spinner_phoneno.getSelectedItem().toString().substring(0,i);
+                                        phoneNumber = phoneNumber.trim();
+                                    }
+                                }
+                                next.putExtra("mobile",phoneNumber+""+editText_mobile.getText().toString());
                                 startActivity(next);
                             }
                         } catch (JSONException e) {

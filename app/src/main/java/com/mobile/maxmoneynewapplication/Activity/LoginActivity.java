@@ -87,9 +87,9 @@ public class LoginActivity extends AppCompatActivity {
         editText_password = findViewById(R.id.editText_password);
 
         button_login = findViewById(R.id.button_login);
-        editText_email.setText("sa@maxmoney.com");
+   /*     editText_email.setText("sa@maxmoney.com");
         editText_password.setText("MaxMoney@2016");
-
+*/
         //setfont
         setFontTextView(textView_signIn,textView_email,textView_password,textView_copyRight,textView_forgotPassword,textView_signup);
         setFontEditText(editText_email,editText_password);
