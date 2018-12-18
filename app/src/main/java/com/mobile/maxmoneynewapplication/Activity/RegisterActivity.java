@@ -254,6 +254,8 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View v) {
                 mProgressDialog.show();
 
+                String digits = spinner_phoneno.getSelectedItem().toString().replaceAll("[^0-9.]", "");
+
                 if(editText_fullname.getText().toString().equals("") || editText_email.getText().toString().equals("") ||
                         editText_mobile.getText().toString().equals("") ||editText_mobile == null || editText_mobile.getText().toString().length() < 5|| editText_idNo.getText().toString().equals("") ||
                         editText_address.getText().toString().equals("") || editText_postolcode.getText().toString().equals("") ||
@@ -265,7 +267,7 @@ public class RegisterActivity extends AppCompatActivity {
                     String accType = spinner_accType.getSelectedItem().toString();
                     String fullname = editText_fullname.getText().toString();
                     String email = editText_email.getText().toString();
-                    String mobile = editText_mobile.getText().toString();
+                    String mobile = "+"+digits+editText_mobile.getText().toString();
                     String idType = spinner_idType.getSelectedItem().toString();
                     String idNo = editText_idNo.getText().toString();
                     String country = country_name;
