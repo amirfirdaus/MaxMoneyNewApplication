@@ -87,6 +87,9 @@ public class CddActivity extends AppCompatActivity {
     Spinner spinner_sourceOfIncome,spinner_natureOfBusiness;
     String whichONE = "";
     Bitmap MICROCHIPBACK,MICROCHIPFRONT;
+
+    String ImageDistanceFront = "";
+    String ImageDistanceBack = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -156,6 +159,8 @@ public class CddActivity extends AppCompatActivity {
                     intent_next.putExtra("image_1",galeryBITMAPSTRING);
                     Log.d("BITMAP 1",galeryBITMAPSTRING);
                 }
+                intent_next.putExtra("ImageDistanceFront",ImageDistanceFront);
+                intent_next.putExtra("ImageDistanceBack",ImageDistanceBack);
                 registerCDD();
             }
         });
@@ -672,13 +677,8 @@ public class CddActivity extends AppCompatActivity {
                             JSONObject next = new JSONObject(response);
                             if(next.has("output")){
                                 JSONObject yaw = new JSONObject(next.getString("output"));
+                                ImageDistanceFront = yaw.getString("distance");
 
-
-                                if(Integer.parseInt(yaw.getString("distance")) <= 19){
-                                    Toast.makeText(getApplicationContext(),"Image Success ",Toast.LENGTH_LONG).show();
-                                }else{
-                                    Toast.makeText(getApplicationContext(),"Image Not Success ",Toast.LENGTH_LONG).show();
-                                }
                             }else{
                                 Toast.makeText(getApplicationContext(),"IMAGE ERROR",Toast.LENGTH_SHORT).show();
                             }
@@ -716,14 +716,7 @@ public class CddActivity extends AppCompatActivity {
                             JSONObject next = new JSONObject(response);
                             if(next.has("output")){
                                 JSONObject yaw = new JSONObject(next.getString("output"));
-
-                                Log.d("DISTANCE",yaw.getString("distance"));
-
-                                if(Integer.parseInt(yaw.getString("distance")) <= 19){
-                                    Toast.makeText(getApplicationContext(),"Image Success ",Toast.LENGTH_LONG).show();
-                                }else{
-                                    Toast.makeText(getApplicationContext(),"Image Not Success ",Toast.LENGTH_LONG).show();
-                                }
+                                ImageDistanceBack = yaw.getString("distance");
                             }else{
                                 Toast.makeText(getApplicationContext(),"IMAGE ERROR",Toast.LENGTH_SHORT).show();
                             }

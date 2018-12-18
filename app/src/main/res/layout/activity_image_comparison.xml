@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="10dp"
-        android:text="Video Upload Sucessfully.  E-kyc face matching"
+        android:text="Document not verify. E-kyc does not match. Please wait for compliance checking !"
         android:textColor="@android:color/black" />
 
     <LinearLayout

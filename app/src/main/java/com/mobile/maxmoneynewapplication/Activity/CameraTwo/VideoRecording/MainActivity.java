@@ -72,7 +72,8 @@ public class MainActivity extends Activity {
     private String bitmap2;
     private String bitmap1;
     private String email;
-
+    String ImageDistanceFront = "";
+    String ImageDistanceBack = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,12 +83,18 @@ public class MainActivity extends Activity {
 
         bitmap1 = getIntent.getStringExtra("bitmap1");
         email = getIntent.getStringExtra("email");
+
+        ImageDistanceFront = getIntent.getStringExtra("ImageDistanceFront");
+        ImageDistanceBack = getIntent.getStringExtra("ImageDistanceBack");
+
         String idNo = getIntent.getStringExtra("idNo");
 
         mPreview = findViewById(R.id.surface_view);
         captureButton = findViewById(R.id.button_capture);
 
         file = new File(Environment.getExternalStoragePublicDirectory(DIRECTORY_DCIM)+"/"+idNo+".mp4");
+
+
     }
 
     public void onCaptureClick(View view) {
@@ -100,7 +107,7 @@ public class MainActivity extends Activity {
             }
             releaseMediaRecorder();
             mCamera.lock();
-            setCaptureButtonText("Capture");
+            setCaptureButtonText("Record");
             isRecording = false;
             releaseCamera();
 
@@ -249,6 +256,8 @@ public class MainActivity extends Activity {
                         next.putExtra("email",email);
                         next.putExtra("bitmap1",bitmap1);
                         next.putExtra("bitmap2",bitmap2);
+                        next.putExtra("ImageDistanceFront",ImageDistanceFront);
+                        next.putExtra("ImageDistanceBack",ImageDistanceBack);
                         startActivity(next);
                     }
                 }, 1500);

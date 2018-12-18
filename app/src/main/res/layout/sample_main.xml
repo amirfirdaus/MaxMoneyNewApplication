@@ -36,7 +36,7 @@
             android:layout_marginRight="15dp"
             android:background="@drawable/custom_button_design_login"
             android:onClick="onCaptureClick"
-            android:text="Capture"
+            android:text="Record"
             android:textColor="@android:color/white" />
     </LinearLayout>
 </FrameLayout>

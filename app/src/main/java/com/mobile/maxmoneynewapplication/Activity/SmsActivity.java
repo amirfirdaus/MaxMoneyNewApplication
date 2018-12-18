@@ -41,7 +41,8 @@ public class SmsActivity extends AppCompatActivity {
     String idNo="",email="",bitmap1="",code="",mobile="";
     AlertDialog.Builder mBuilder;
     AlertDialog mDialog;
-
+    String ImageDistanceFront = "";
+    String ImageDistanceBack = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +63,8 @@ public class SmsActivity extends AppCompatActivity {
         email = getIntent.getStringExtra("email");
         bitmap1 = getIntent.getStringExtra("image_1");
         mobile = getIntent.getStringExtra("mobile");
+        ImageDistanceFront = getIntent.getStringExtra("ImageDistanceFront");
+        ImageDistanceBack = getIntent.getStringExtra("ImageDistanceBack");
         //declare
         editText_v1 = findViewById(R.id.editText_v1);
         editText_v2 = findViewById(R.id.editText_v2);
@@ -148,6 +151,8 @@ public class SmsActivity extends AppCompatActivity {
                     intent_next.putExtra("idNo",idNo);
                     intent_next.putExtra("bitmap1",bitmap1);
                     intent_next.putExtra("email",email);
+                    intent_next.putExtra("ImageDistanceFront",ImageDistanceFront);
+                    intent_next.putExtra("ImageDistanceBack",ImageDistanceBack);
                     startActivity(intent_next);
                 }else {
                     Toast.makeText(getApplicationContext(),"TAC IS NOT VALID",Toast.LENGTH_SHORT).show();

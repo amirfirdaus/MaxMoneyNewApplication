@@ -44,6 +44,7 @@ public class ImageComparisonActivity extends AppCompatActivity {
     Button dialog_ok;
     AlertDialog.Builder mBuilder;
     AlertDialog mDialog;
+    String ImageDistanceFront,ImageDistanceBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +60,8 @@ public class ImageComparisonActivity extends AppCompatActivity {
         bitmap1 = getIntent.getStringExtra("bitmap1");
         bitmap2 = getIntent.getStringExtra("bitmap2");
         email = getIntent.getStringExtra("email");
+        ImageDistanceFront = getIntent.getStringExtra("ImageDistanceFront");
+        ImageDistanceBack = getIntent.getStringExtra("ImageDistanceBack");
 
         textView_percentage = findViewById(R.id.textView_percentage);
         dialog_info = findViewById(R.id.dialog_info);
@@ -87,9 +90,11 @@ public class ImageComparisonActivity extends AppCompatActivity {
                             Double percentages = Double.parseDouble(testing.getString("confidence"));
                             if(percentages < 80){
                                 textView_percentage.setText(String.valueOf(percentages)+"%");
-                                dialog_info.setText("Please Try Again. E-kyc does not match. Please wait for compliance checking !");
+                                dialog_info.setText("E-kyc does not match. Please wait for compliance checking !");
                                 updateStatus("inactive");
-                            }else{
+                            }
+
+                            if(percentages > 80 ){
                                 textView_percentage.setText(String.valueOf(percentages)+"%");
                                 updateStatus("active");
                             }
